@@ -9,20 +9,71 @@
 </head>
 <body class="bg-light">
   <div class="container mt-5">
-    <h2 class="mb-4">Simple Bootstrap Form</h2>
+    <h2 class="mb-4">login Form</h2>
     <form>
+      <!-- Email -->
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
         <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" required>
+        <div class="form-text">We'll never share your email with anyone else.</div>
       </div>
+
+      <!-- Password -->
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Password</label>
         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
       </div>
-      <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Remember me</label>
+
+      <!-- Name -->
+      <div class="mb-3">
+        <label for="exampleInputName" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="exampleInputName" placeholder="Your name" required>
       </div>
+
+      <!-- Phone Number -->
+      <div class="mb-3">
+        <label for="exampleInputPhone" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" id="exampleInputPhone" placeholder="123-456-7890" pattern="[0-9]{10}" required>
+      </div>
+
+      <!-- Gender (Radio) -->
+      <div class="mb-3">
+        <label class="form-label d-block">Gender</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" id="genderMale" value="male" required>
+          <label class="form-check-label" for="genderMale">Male</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="female" required>
+          <label class="form-check-label" for="genderFemale">Female</label>
+        </div>
+      </div>
+
+      <!-- Select -->
+      <div class="mb-3">
+        <label for="exampleSelect" class="form-label">Select your country</label>
+        <select class="form-select" id="exampleSelect" required>
+          <option value="">Choose...</option>
+          <option value="India">India</option>
+          <option value="USA">USA</option>
+          <option value="UK">UK</option>
+          <option value="Australia">Australia</option>
+        </select>
+      </div>
+
+      <!-- Textarea -->
+      <div class="mb-3">
+        <label for="exampleTextarea" class="form-label">Message</label>
+        <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Your message"></textarea>
+      </div>
+
+      <!-- Checkbox -->
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+        <label class="form-check-label" for="exampleCheck1">I agree to the terms and conditions</label>
+      </div>
+
+      <!-- Submit -->
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
