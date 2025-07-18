@@ -4,146 +4,235 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Student Registration Form</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <style>
     body {
-      background-color: #f2dede;
+      background-color: paleturquoise;
     }
-    .form-container {
-      background: #fff;
-      padding: 30px;
-      border-radius: 8px;
-      max-width: 700px;
-      margin: 30px auto;
+    .registration-form {
+      background: #ffffff;
+      padding: 40px;
+      max-width: 800px;
+      margin: 50px auto;
+      border-radius: 5px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    .form-title {
+    .registration-form h2 {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="form-container">
-      <h2 class="form-title">Student Registration Form</h2>
-      <form>
-        <div class="mb-3">
-          <label for="rollNo" class="form-label">Roll no.</label>
-          <input type="text" class="form-control" id="rollNo" placeholder="Enter Roll no.">
-        </div>
 
-        <div class="row mb-3">
-          <div class="col">
-            <label for="firstName" class="form-label">First name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="First name">
+<div class="container">
+  <div class="registration-form">
+    <h2>STUDENT REGISTRATION FORM</h2>
+    <form id="studentForm" onsubmit="return validateForm()">
+
+      <!-- First Name -->
+      <div class="row mb-3">
+        <div class="col-md-4"><label for="fname">First Name</label></div>
+        <div class="col-md-8">
+          <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter First Name" required>
+        </div>
+      </div>
+
+      <!-- Last Name -->
+      <div class="row mb-3">
+        <div class="col-md-4"><label for="lname">Last Name</label></div>
+        <div class="col-md-8">
+          <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter Last Name" required>
+        </div>
+      </div>
+
+      <!-- Father's Name -->
+      <div class="row mb-3">
+        <div class="col-md-4"><label>Father's Name</label></div>
+        <div class="col-md-8">
+          <input type="text" class="form-control" name="father" required>
+        </div>
+      </div>
+
+      <!-- Mother's Name -->
+      <div class="row mb-3">
+        <div class="col-md-4"><label>Mother's Name</label></div>
+        <div class="col-md-8">
+          <input type="text" class="form-control" name="mother" required>
+        </div>
+      </div>
+
+      <!-- Roll No -->
+      <div class="row mb-3">
+        <div class="col-md-4"><label>Roll No.</label></div>
+        <div class="col-md-8">
+          <input type="text" class="form-control" name="rollno" required>
+        </div>
+      </div>
+
+      <!-- Date of Birth -->
+      <div class="row mb-3">
+        <div class="col-md-4"><label>Date of Birth</label></div>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col"><input type="number" class="form-control" id="day" placeholder="Day" min="1" max="31" required></div>
+            <div class="col"><input type="number" class="form-control" id="month" placeholder="Month" min="1" max="12" required></div>
+            <div class="col"><input type="number" class="form-control" id="year" placeholder="Year" min="1900" max="2024" required></div>
           </div>
-          <div class="col">
-            <label for="lastName" class="form-label">Last name</label>
-            <input type="text" class="form-control" id="lastName" placeholder="Last name">
-          </div>
         </div>
+      </div>
 
-        <div class="mb-3">
-          <label for="fatherName" class="form-label">Father's name</label>
-          <input type="text" class="form-control" id="fatherName" placeholder="Enter Father's name">
+      <!-- Mobile No -->
+      <div class="row mb-3">
+        <div class="col-md-4"><label>Mobile No.</label></div>
+        <div class="col-md-8">
+          <input type="tel" class="form-control" name="mobile" pattern="[0-9]{10}" placeholder="Enter 10-digit Mobile No" required>
         </div>
+      </div>
 
-        <div class="row mb-3">
-          <div class="col">
-            <label class="form-label">Date of Birth</label>
-            <div class="row">
-              <div class="col">
-                <input type="number" class="form-control" placeholder="Day">
-              </div>
-              <div class="col">
-                <input type="number" class="form-control" placeholder="Month">
-              </div>
-              <div class="col">
-                <input type="number" class="form-control" placeholder="Year">
-              </div>
-            </div>
-          </div>
+      <!-- Email -->
+      <div class="row mb-3">
+        <div class="col-md-4"><label>Email ID</label></div>
+        <div class="col-md-8">
+          <input type="email" class="form-control" name="email" placeholder="Enter Email ID" required>
         </div>
+      </div>
 
-        <div class="mb-3">
-          <label for="mobile" class="form-label">Mobile no.</label>
-          <input type="tel" class="form-control" id="mobile" placeholder="+91">
+      <!-- Password -->
+      <div class="row mb-3">
+        <div class="col-md-4"><label>Password</label></div>
+        <div class="col-md-8">
+          <input type="password" class="form-control" id="password" name="password" placeholder="Min 6 characters" minlength="6" required>
         </div>
+      </div>
 
-        <div class="mb-3">
-          <label for="email" class="form-label">Email id</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter Email id">
+      <!-- Nationality -->
+      <div class="row mb-3">
+        <div class="col-md-4"><label>Nationality</label></div>
+        <div class="col-md-8">
+          <input type="text" class="form-control" name="nationality" required>
         </div>
+      </div>
 
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password" placeholder="Enter Password">
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label d-block">Gender</label>
+      <!-- Gender -->
+      <div class="row mb-3">
+        <div class="col-md-4"><label>Gender</label></div>
+        <div class="col-md-8">
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="gender" id="male" value="Male">
-            <label class="form-check-label" for="male">Male</label>
+            <input class="form-check-input" type="radio" name="gender" value="Male" required>
+            <label class="form-check-label">Male</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
-            <label class="form-check-label" for="female">Female</label>
+            <input class="form-check-input" type="radio" name="gender" value="Female">
+            <label class="form-check-label">Female</label>
           </div>
         </div>
+      </div>
 
-        <div class="mb-3">
-          <label class="form-label d-block">Department</label>
+      <!-- Department -->
+      <div class="row mb-3">
+        <div class="col-md-4"><label>Department</label></div>
+        <div class="col-md-8" id="departments">
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="cse" value="CSE">
-            <label class="form-check-label" for="cse">CSE</label>
+            <input class="form-check-input dept" type="checkbox" value="BCA">
+            <label class="form-check-label">BCA</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="it" value="IT">
-            <label class="form-check-label" for="it">IT</label>
+            <input class="form-check-input dept" type="checkbox" value="B.COM">
+            <label class="form-check-label">B.COM</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="ece" value="ECE">
-            <label class="form-check-label" for="ece">ECE</label>
+            <input class="form-check-input dept" type="checkbox" value="MCA">
+            <label class="form-check-label">MCA</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="civil" value="Civil">
-            <label class="form-check-label" for="civil">Civil</label>
+            <input class="form-check-input dept" type="checkbox" value="Civil">
+            <label class="form-check-label">Civil</label>
           </div>
         </div>
+      </div>
 
-        <div class="mb-3">
-          <label for="course" class="form-label">Course</label>
-          <select class="form-select" id="course">
-            <option selected>Select Current Course's</option>
-            <option value="B.Tech">B.Tech</option>
-            <option value="M.Tech">M.Tech</option>
-            <option value="Diploma">Diploma</option>
+      <!-- Course -->
+      <div class="row mb-3">
+        <div class="col-md-4"><label>Course</label></div>
+        <div class="col-md-8">
+          <select class="form-select" id="course" required>
+            <option value="">Select Course</option>
+            <option>BCA</option>
+            <option>B.COM</option>
+            <option>Diploma</option>
+            <option>BSC</option>
+            <option>M.Tech</option>
+            <option>MBA</option>
+            <option>B.Tech</option>
+            <option>Civil</option>
+            <option>MCA</option>
           </select>
         </div>
+      </div>
 
-        <div class="mb-3">
-          <label for="photo" class="form-label">Student photo</label>
-          <input class="form-control" type="file" id="photo">
+      <!-- Student Photo -->
+      <div class="row mb-3">
+        <div class="col-md-4"><label>Student Photo</label></div>
+        <div class="col-md-8">
+          <input type="file" class="form-control" name="photo" required>
         </div>
+      </div>
 
-        <div class="mb-3">
-          <label for="city" class="form-label">City</label>
-          <input type="text" class="form-control" id="city" placeholder="Enter City">
+      <!-- City -->
+      <div class="row mb-3">
+        <div class="col-md-4"><label>City</label></div>
+        <div class="col-md-8">
+          <input type="text" class="form-control" name="city" required>
         </div>
+      </div>
 
-        <div class="mb-3">
-          <label for="address" class="form-label">Address</label>
-          <textarea class="form-control" id="address" rows="3"></textarea>
+      <!-- Address -->
+      <div class="row mb-4">
+        <div class="col-md-4"><label>Address</label></div>
+        <div class="col-md-8">
+          <textarea class="form-control" name="address" rows="2" required></textarea>
         </div>
+      </div>
 
-        <button type="submit" class="btn btn-primary">Register</button>
-      </form>
-    </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary px-5">Register</button>
+      </div>
+
+    </form>
   </div>
+</div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function validateForm() {
+  // Check at least one department is selected
+  const deptChecked = document.querySelectorAll('.dept:checked').length;
+  if (deptChecked === 0) {
+    alert("Please select at least one department.");
+    return false;
+  }
+
+  // Validate DOB
+  const day = parseInt(document.getElementById("day").value);
+  const month = parseInt(document.getElementById("month").value);
+  const year = parseInt(document.getElementById("year").value);
+  if (isNaN(day) || isNaN(month) || isNaN(year) || day < 1 || day > 31 || month < 1 || month > 12 || year < 1900) {
+    alert("Please enter a valid date of birth.");
+    return false;
+  }
+
+  // Validate course selection
+  const course = document.getElementById("course").value;
+  if (course === "") {
+    alert("Please select a course.");
+    return false;
+  }
+
+  return true; // Allow form submission
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
